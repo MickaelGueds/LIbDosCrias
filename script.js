@@ -8,20 +8,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmAddBookButton = document.getElementById('confirm-add-book');
     const bookCarousel = document.querySelector('.book.js-flickity');
 
-    // Variável para armazenar o PDF selecionado
     let selectedPdfFile = null;
 
-    // Inicialização do Flickity
     const flickityInstance = new Flickity(bookCarousel, {
         wrapAround: true
     });
 
-    // Evento de clique para abrir o seletor de arquivos PDF
+    // Carregar livros do JSON ao iniciar a página
+    window.electronAPI.loadBooks((books) => {
+        books.forEach((book) => {
+            const newBookCell = document.createElement('div');
+            newBookCell.classList.add('book-cell');
+
+            newBookCell.innerHTML = `
+                <div class="book-info">
+                    <div class="book-img">
+                        <img src="${book.cover}" alt="${book.name}" class="book-photo">
+                    </div>
+                    <div class="book-content">
+                        <div class="book-title">${book.name}</div>
+                        <div class="book-author">PDF Adicionado</div>
+                        <button class="continue-reading-btn">Continuar Leitura</button>
+                    </div>
+                </div>
+                <div class="book-stats">
+                    <p>Página atual: 0</p>
+                    <p>Progresso: 0%</p>
+                </div>
+            `;
+
+            flickityInstance.append(newBookCell);
+        });
+
+        flickityInstance.reloadCells();
+    });
+
     addButton.addEventListener('click', () => {
         pdfFileInput.click();
     });
 
-    // Evento de mudança para capturar o PDF selecionado
     pdfFileInput.addEventListener('change', (event) => {
         selectedPdfFile = event.target.files[0];
         if (selectedPdfFile) {
@@ -29,17 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Evento de clique para confirmar a adição do livro
     confirmAddBookButton.addEventListener('click', () => {
         const bookName = bookNameInput.value.trim();
         const bookCover = bookCoverInput.value.trim();
 
         if (bookName && bookCover && selectedPdfFile) {
-            // Criar um novo elemento de livro
             const newBookCell = document.createElement('div');
             newBookCell.classList.add('book-cell');
 
-            // Adicionar a estrutura do novo livro ao carrossel
             newBookCell.innerHTML = `
                 <div class="book-info">
                     <div class="book-img">
@@ -57,13 +79,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            // Adicionar o novo livro ao carrossel
             flickityInstance.append(newBookCell);
-
-            // Atualizar o Flickity após a adição do novo elemento
             flickityInstance.reloadCells();
 
-            // Limpar o modal e os inputs
+            // Enviar os dados do livro para o processo principal para salvar no JSON
+            window.electronAPI.saveBook({
+                name: bookName,
+                cover: bookCover,
+                pdfPath: selectedPdfFile.path
+            });
+
             bookNameModal.style.display = 'none';
             bookNameInput.value = '';
             bookCoverInput.value = '';
