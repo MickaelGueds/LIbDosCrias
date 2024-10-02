@@ -1,0 +1,299 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+body {
+    font-family: 'Archivo Black', sans-serif;
+    background-color: #131212de;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #9d00ff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Book Styles */
+.book-slide {
+    width: 100%;
+    background: url('https://i.pinimg.com/originals/28/d4/36/28d436823890f7c6e5db2fa201b6a33c.gif') no-repeat center center;
+    background-size: cover;
+    padding: 50px 0;
+}
+
+.book-cell {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    width: 40%;
+    height: 600px;
+    margin: 0 20px; /* Adiciona margem lateral para espaçar os cards */
+    background-color: #fff;
+    color: #000;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column; /* Reorganiza verticalmente */
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    gap: 20px;
+}
+
+.book-img {
+    margin-bottom: 15px;
+}
+
+.book-photo {
+    width: 170px;
+    border-radius: 4px;
+    box-shadow: -2px 6px 19px 0px #7f818e;
+    transition: transform 0.3s ease;
+}
+
+.book-photo:hover {
+    transform: scale(1.1);
+}
+
+/* Movendo o título do livro para o topo */
+.book-title {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.book-author {
+    margin-top: 3px;
+    font-size: 14px;
+    color: #777;
+}
+
+.book-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+/* Mantendo as estatísticas na parte inferior */
+.book-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto; /* Move as estatísticas para o final */
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    color: #000;
+}
+
+.book-stats p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Estilizando o botão 'Continuar Leitura' */
+.continue-reading-btn {
+    padding: 10px 20px;
+    background-color: #9d00ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px; /* Espaço entre o título e o botão */
+    transition: background-color 0.3s ease;
+}
+
+.continue-reading-btn:hover {
+    background-color: #e600ff; /* Muda a cor ao passar o mouse */
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    background-color: #131212de;
+    position: relative;
+}
+
+.app-title {
+    text-align: center;
+}
+
+.app-title h1 {
+    font-size: 44px;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: url('https://i.pinimg.com/originals/97/e7/c2/97e7c21b1e9ba1725b150f6b40c2192c.gif');
+    background-size: cover;
+    background-position: center;
+}
+
+.app-title h1:hover, .book-counter:hover {
+    opacity: 0.8;
+}
+
+.book-counter {
+    font-size: 24px;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: url('https://i.pinimg.com/originals/97/e7/c2/97e7c21b1e9ba1725b150f6b40c2192c.gif');
+    background-size: cover;
+    background-position: center;
+}
+
+.book-counter p {
+    font-size: 40px;
+    margin: 0px;
+}
+
+/* Search Bar Styles */
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    padding: 10px;
+    border: 2px solid #9d00ff;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-input::placeholder {
+    color: #e0e0e0;
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.lupa-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(100%);
+}
+
+/* Button Styles */
+#add-button {
+    padding: 10px 20px;
+    background-color: #9d00ff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #e600ff;
+}
+
+.add-button {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 16px;
+}
+
+#book-name-modal {
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+#book-name-modal input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#book-name-modal button {
+    padding: 10px 20px;
+    background-color: #9d00ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .app-title h1 {
+        font-size: 40px;
+    }
+
+    .search-bar-container {
+        margin-right: 10px;
+    }
+
+    .add-button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 800px) {
+    .app-title h1 {
+        font-size: 36px;
+    }
+
+    .add-button {
+        font-size: 12px;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .search-bar-container {
+        margin-bottom: 10px;
+    }
+
+    .book-cell {
+        width: 90%;
+        height: auto;
+    }
+}
+
+/* Limite de responsividade mínima */
+body {
+    min-width: 800px;
+}

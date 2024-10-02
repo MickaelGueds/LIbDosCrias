@@ -1,0 +1,122 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2.2.2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2.2.2/dist/flickity.pkgd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="header">
+      <div class="app-title">
+        <h1>LIB DOS CRIAS</h1> <!-- Título do app -->
+      </div>
+
+      <div class="book-counter">
+        <p>Livros: 10</p>
+      </div>
+
+      <div class="search-bar-container">
+        <input type="text" class="search-input" placeholder="Pesquisar livro...">
+        <button class="search-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/49/49116.png" alt="Lupa" class="lupa-icon">
+        </button>
+        <button id="add-button">ADICIONAR LIVRO</button>
+      </div>
+    </div>
+
+  <!-- Input de arquivo escondido -->
+  <input type="file" id="pdf-file-input" accept="application/pdf" style="display: none;">
+
+<!-- Modal para nome do livro e link da capa (pode estilizar como quiser) -->
+<div id="book-name-modal" style="display: none;">
+  <label for="book-name-input">Nome do Livro:</label>
+  <input type="text" id="book-name-input" placeholder="Digite o nome do livro">
+  
+  <label for="book-cover-input">Link da Capa do Livro:</label>
+  <input type="text" id="book-cover-input" placeholder="Digite o link da imagem da capa">
+  
+  <button id="confirm-add-book">Confirmar</button>
+</div>
+
+
+
+
+    <div class="book-slide">
+      <div class="book js-flickity" data-flickity-options='{ "wrapAround": true }'>
+        <div class="book-cell">
+          <div class="book-info">
+            <div class="book-img">
+              <img src="https://images-na.ssl-images-amazon.com/images/I/81WcnNQ-TBL.jpg" alt="Book 1" class="book-photo">
+            </div>
+            <div class="book-content">
+              <div class="book-title">BIG MAGIC</div>
+              <div class="book-author">by Elizabeth Gilbert</div>
+              <!-- Botão de continuar leitura abaixo do título -->
+      <button class="continue-reading-btn">Continuar Leitura</button>
+
+            </div>
+          </div>
+
+          <!-- Estatísticas do livro -->
+          <div class="book-stats">
+            <p>Página atual: 50</p>
+            <p>Progresso: 30%</p>
+          </div>
+        </div>
+
+        <div class="book-cell">
+          <div class="book-info">
+            <div class="book-img">
+              <img src="https://i.pinimg.com/originals/a8/b9/ff/a8b9ff74ed0f3efd97e09a7a0447f892.jpg" alt="Book 2" class="book-photo">
+            </div>
+            <div class="book-content">
+              <div class="book-title">Ten Thousand Skies Above You</div>
+              <div class="book-author">by Claudia Gray</div>
+              <!-- Botão de continuar leitura abaixo do título -->
+            <button class="continue-reading-btn">Continuar Leitura</button>
+
+            </div>
+          </div>
+
+          <!-- Estatísticas do livro -->
+          <div class="book-stats">
+            <p>Página atual: 120</p>
+            <p>Progresso: 45%</p>
+          </div>
+        </div>
+
+        <div class="book-cell">
+          <div class="book-info">
+            <div class="book-img">
+              <img src="https://www.abebooks.com/blog/wp-content/uploads/2016/08/10.jpg" alt="Book 3" class="book-photo">
+            </div>
+            <div class="book-content">
+              <div class="book-title">A Tale For The Time Being</div>
+              <div class="book-author">by Ruth Ozeki</div>
+              <!-- Botão de continuar leitura abaixo do título -->
+  <button class="continue-reading-btn">Continuar Leitura</button>
+
+            </div>
+          </div>
+
+          <!-- Estatísticas do livro -->
+          <div class="book-stats">
+            <p>Página atual: 80</p>
+            <p>Progresso: 60%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul id="pdf-list"></ul>
+
+    <script src="render.js"></script>
+    <script src="script.js"></script>
+
+  </body>
+  </html>
